@@ -122,7 +122,7 @@ def collision(x1,y1,x2,y2):
         return True
 
 def gameover():
-    score=0
+    global score
     font =pygame.font.Font("freesansbold.ttf",32)
     screen.blit(font.render(" GAME OVER \n SCORE = "+str(score),True,(255,255,255)),(200,300))
 
@@ -158,7 +158,7 @@ def main():
         screen.blit(bgimage, (0,0))
         
         counter+=1
-        if(counter==4000 or len(en)<ecount):
+        if(counter>=2000 or len(en)<ecount):
             counter=0
             en.append(enemy(random.randint(0,760),0,random.choice(enemies)))
             ecount=len(en)
@@ -206,12 +206,10 @@ def main():
         p1.move()
         show_score()
         pygame.display.update()
-    for i in range(len(en)):
-        en[i].destroy()
     gameover()
     start = pygame.time.get_ticks()
     while(True):
-        if pygame.time.get_ticks()-start>=5000:
+        if pygame.time.get_ticks()-start>=2000:
                 break
         pygame.display.update()
 
