@@ -1,6 +1,6 @@
 # python-games
-<h1>This is a Space shooter game made using a python library : pygames<h1>
 <body>
+<h1>This is a Space shooter game made using a python library : pygames<h1>
 
 <h2>Controls</h2>
 
@@ -20,4 +20,5 @@
    
   </tr>
 </table>
+  </body>
 
