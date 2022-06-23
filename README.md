@@ -1,11 +1,5 @@
 # python-games
 <h1>This is a Space shooter game made using a python library : pygames<h1>
-<h3>Controls</h3>
-<style>
-table, th, td {
-  border:1px solid black;
-}
-</style>
 <body>
 
 <h2>Controls</h2>
