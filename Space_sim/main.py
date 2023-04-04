@@ -9,10 +9,10 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600))
 
 pygame.display.set_caption("My Game")
-gameIcon=pygame.image.load("project/images/icon.png")
+gameIcon=pygame.image.load("Space_sim/images/icon.png")
 pygame.display.set_icon(gameIcon)
 
-shot=pygame.image.load("project/images/shots.png")
+shot=pygame.image.load("Space_sim/images/shots.png")
 shot=pygame.transform.scale(shot, (30,30))
 
 
@@ -25,7 +25,7 @@ font =pygame.font.Font("freesansbold.ttf",32)
 def show_score():
     screen.blit(font.render("SCORE : "+str(score),True,(255,255,255)),(0,0))
 
-pygame.mixer.music.load("project/sounds/bg_sound.wav")
+pygame.mixer.music.load("Space_sim/sounds/bg_sound.wav")
 pygame.mixer.music.play(-1)
 
 class bullets:
@@ -34,7 +34,7 @@ class bullets:
         self.__mover__=-5
         self.__x__=x
         self.__y__=y
-        self.__img__=pygame.image.load("project/images/"+img)
+        self.__img__=pygame.image.load("Space_sim/images/"+img)
         self.__img__=pygame.transform.scale(self.__img__, (40,40))
     def move(self,x):
         if(self.__fired__):
@@ -56,7 +56,7 @@ class bullets:
     def activate(self):
         if self.__fired__:
             return
-        pygame.mixer.Sound("project/sounds/shooting.wav").play()
+        pygame.mixer.Sound("Space_sim/sounds/shooting.wav").play()
         self.__fired__=True
     def deactivate(self):
         self.__y__=550
@@ -66,7 +66,7 @@ class player():
     def __init__(self,x,y,img):
         self.__x__=x
         self.__y__=y
-        self.__img__=pygame.image.load("project/images/"+img)
+        self.__img__=pygame.image.load("Space_sim/images/"+img)
         self.__img__=pygame.transform.scale(self.__img__, (40,40))
         screen.blit(self.__img__, (x,y))
     def move(self):
@@ -89,7 +89,7 @@ class enemy:
         self.__mover__=3*random.choice(choice)
         self.__x__=x
         self.__y__=y
-        self.__img__=pygame.image.load("project/images/"+img)
+        self.__img__=pygame.image.load("Space_sim/images/"+img)
         self.__img__=pygame.transform.scale(self.__img__, (40,40))
         screen.blit(self.__img__, (x,y))
     def move(self):
@@ -153,7 +153,7 @@ def main():
     while running:
         
         screen.fill((150, 150, 200))
-        bgimage=pygame.image.load("project/images/bg.jpg")
+        bgimage=pygame.image.load("Space_sim/images/bg.jpg")
         bgimage=pygame.transform.scale(bgimage, (800,600))
         screen.blit(bgimage, (0,0))
         
@@ -193,7 +193,7 @@ def main():
                 running=False
                 break
             if(collision(en[i].get_x(),en[i].get_y(),bullet.get_x(),bullet.get_y())):
-                pygame.mixer.Sound("project/sounds/died.wav").play()
+                pygame.mixer.Sound("Space_sim/sounds/died.wav").play()
                 score+=10
                 bullet.deactivate()
                 d=en.pop(i)
